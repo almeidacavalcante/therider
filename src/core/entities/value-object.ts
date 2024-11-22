@@ -1,8 +1,8 @@
-export abstract class ValueObject<Props> {
-  protected props: Props
+export abstract class ValueObject<Input> {
+  protected input: Input
 
-  protected constructor(props: Props) {
-    this.props = props
+  protected constructor(input: Input) {
+    this.input = input
   }
 
   public equals(vo: ValueObject<unknown>) {
@@ -10,10 +10,10 @@ export abstract class ValueObject<Props> {
       return false
     }
 
-    if (vo.props === undefined) {
+    if (vo.input === undefined) {
       return false
     }
 
-    return JSON.stringify(vo.props) === JSON.stringify(this.props)
+    return JSON.stringify(vo.input) === JSON.stringify(this.input)
   }
 }
